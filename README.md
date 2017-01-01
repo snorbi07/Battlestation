@@ -42,10 +42,10 @@ Also, the provided script files can be seen as a form of documentation for the t
 To prepare our Battlestation for working with a specific role, just run _ansible-playbook_ with a specific role.
 
 ```
-ansible-playbook roles/path/to/feature.yaml
+ansible-playbook roles/path/to/feature.yaml -k
 ```
 
-## Spacemacs setup
+## Emacs setup
 TODO
 
 ## Python support

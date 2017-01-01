@@ -1,0 +1,17 @@
+---
+- hosts: all
+  remote_user: root
+  become: yes
+  tasks:
+    - name: development files for Python3
+      zypper: name=python3-devel state=present
+
+    - name: development files for SSL/TLS
+      zypper: name=libressl-devel state=present
+
+    - name: ensure that gcc is available
+      zypper: name=gcc state=present
+
+    - name: ensure that gcc6 is available
+      zypper: name=gcc6 state=present
+

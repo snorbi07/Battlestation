@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: root
+  become: yes
+  tasks:
+    - name: install silversearcher 
+      zypper: name=the_silver_searcher state=present
+
+    - name: install git
+      zypper: name=git state=present
+
+    - name: install Zeal for offline documentation support
+      zypper: name=zeal state=present
