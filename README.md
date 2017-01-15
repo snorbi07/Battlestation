@@ -42,15 +42,20 @@ Also, the provided script files can be seen as a form of documentation for the t
 To prepare our Battlestation for working with a specific role, just run _ansible-playbook_ with a specific role.
 
 ```
-ansible-playbook roles/path/to/feature.yaml -k
+ansible-playbook roles/path/to/feature.yaml -kK
 ```
 
+This should work for all roles. You should get a popup asking for your password and sudo password as well when necessary.
+
 ## Emacs setup
-TODO
+To setup the latest version of Emacs with a (my) personal configuration run the provided playbook.
+After ensuring that Emacs is installed it removes any existing configuration - usually distro defaults - and links to the one checked out from GitHub.
+
+ansible-playbook roles/workstation/emacs.yaml -kK
 
 ## Python support
 The necessary packages (OS, PiP) are installed by the Ansible playbook found under _roles/devtools/python.yaml_.
 
 ```
-ansible-playbook roles/devtools/python.yaml 
+ansible-playbook roles/devtools/python.yaml -kK
 ```

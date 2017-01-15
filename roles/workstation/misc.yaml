@@ -6,5 +6,8 @@
     - name: install tree command
       zypper: name=tree state=present
 
-    - name: install install Adobe Source Code Pro font
+    - name: install  Adobe Source Code Pro font
       zypper: name=adobe-sourcecodepro-fonts state=present
+
+    - name: install ispell for spell checking
+      zypper: name=ispell state=present
