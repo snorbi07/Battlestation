@@ -1,0 +1,32 @@
+---
+- hosts: all
+  tasks:
+    - name: install emacs
+      zypper: name=emacs state=present
+
+    - name: ensure that Projects folder exists
+      file:
+        path: ~/Projects
+        state: directory
+        mode: 0755
+
+    - name: checkout my emacs config
+      git:
+        repo: https://github.com/snorbi07/emacs.d.git
+        dest: ~/Projects/emacs.d
+
+    - name: delete existing emacs configuration
+      file:
+        path: ~/.emacs
+        state: absent
+
+    - name: delete existing emacs.d configuration directory
+      file:
+        path: ~/.emacs.d
+        state: absent
+
+    - name: create links to personal emacs configuration
+      file:
+        src: ~/Projects/emacs.d
+        dest: ~/.emacs.d
+        state: link

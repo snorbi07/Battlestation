@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: root
+  become: yes
+  tasks:
+    - name: install tree command
+      zypper: name=tree state=present
+
+    - name: install install Adobe Source Code Pro font
+      zypper: name=adobe-sourcecodepro-fonts state=present
