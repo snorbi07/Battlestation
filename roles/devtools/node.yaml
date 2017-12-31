@@ -1,9 +1,0 @@
----
-- hosts: all
-  remote_user: root
-  become: yes
-  vars_files:
-    - [ "../../vars/{{ansible_distribution}}.yaml" ]
-  tasks:
-    - name: Install nodejs runtime
-      package: name={{pkg_name_node}} state=present
