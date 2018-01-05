@@ -13,7 +13,7 @@ The configuration file is located under ~/.config/i3/config. This is what needs 
 To also install all the used applications, run the following command:
 
 ```
-zypper in rxvt-unicode feh fontawesome-fonts
+zypper in rxvt-unicode feh fontawesome-fonts rofi
 
 ```
 
