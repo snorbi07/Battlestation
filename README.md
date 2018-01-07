@@ -17,6 +17,21 @@ zypper in rxvt-unicode feh fontawesome-fonts rofi
 
 ```
 
+# urxvt
+Under _dotfiles_ resides the _Xresources_ config file that _urxvt_ uses to change the look and feel.
+This needs to be linked to _`~/.Xresources`.
+
+# zsh
+Make sure to install _zsh_ and the dependencies needed by running:
+```
+zypper in zsh powerline-fonts
+```
+
+After follow the install instructions of _ohmyzsh_: https://github.com/robbyrussell/oh-my-zsh
+
+When this is done, remove _~/.zshrc_ and link the provided _dotfiles_ one._
+
+
 # Installing node
 
 Just use the [Node Version Manager](https://github.com/creationix/nvm).
