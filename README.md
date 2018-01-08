@@ -13,11 +13,11 @@ The configuration file is located under ~/.config/i3/config. This is what needs 
 To also install all the used applications, run the following command:
 
 ```
-zypper in rxvt-unicode feh fontawesome-fonts rofi
+zypper in rxvt-unicode feh fontawesome-fonts rofi redshift
 
 ```
 
-# urxvt
+## urxvt
 Under _dotfiles_ resides the _Xresources_ config file that _urxvt_ uses to change the look and feel.
 This needs to be linked to _`~/.Xresources`.
 
@@ -31,13 +31,7 @@ After follow the install instructions of _ohmyzsh_: https://github.com/robbyruss
 
 When this is done, remove _~/.zshrc_ and link the provided _dotfiles_ one._
 
-
-# Installing node
-
-Just use the [Node Version Manager](https://github.com/creationix/nvm).
-
-
-## Emacs setup
+# Emacs setup
 
 Install the latest version of emacs and make sure to remove any existing configuration, since we won't need that!
 
@@ -50,6 +44,7 @@ rm -rf ~/.emacs.d
 To setup the latest version of Emacs with a (my) personal configuration fetch it from [GitHub](https://github.com/snorbi07/emacs.d).
 After you cloned the the configuration, make sure to create a symlink to `~/.emacs.d_`.
 
+# Installing node
 
-
+Just use the [Node Version Manager](https://github.com/creationix/nvm).
 

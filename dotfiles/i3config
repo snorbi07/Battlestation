@@ -194,6 +194,9 @@ bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "80" -columns 1 -font
 # set a fancy background picture
 exec_always feh --bg-scale ~/Pictures/bg.jpg
 
+# start redshift since I don't want my eyes to bleed!
+exec --no-startup-id redshift
+
 # we want specific applications to always reside in the dedicated workspace (use 'xprop' to get the correct class name)
 assign [class="Firefox"] $workspace2
 assign [class="Emacs"] $workspace3
