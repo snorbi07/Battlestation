@@ -7,6 +7,13 @@ You'll find scripts that automate the installations and also my personal dot fil
 Most of the scripts are tested with my preferred Linux distribution, [openSUSE Tumbleweed](https://en.opensuse.org/Portal:Tumbleweed). 
 With some modifications it could work for other distributions as well.
 
+# zypper configuration
+To avoid the installation of "recommended" packages by default, make sure to disable it in _/etc/zypp.conf_, by setting the following property.
+```
+solver.onlyRequires = true
+```
+This way dist upgrades won't try to install those either.
+
 # i3 - desktop environment setup 
 
 The configuration file is located under ~/.config/i3/config. This is what needs to be overriden by the provided one.
