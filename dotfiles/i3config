@@ -192,7 +192,7 @@ bindsym $mod+p exec arandr
 bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "80" -columns 1 -font "Source Code Pro Semibold 14"
 
 # set a fancy background picture
-exec_always feh --bg-scale ~/Pictures/bg.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/bg.jpg
 
 # start redshift since I don't want my eyes to bleed!
 exec --no-startup-id redshift
