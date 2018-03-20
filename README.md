@@ -4,15 +4,8 @@ You'll find scripts that automate the installations and also my personal dot fil
 
 # Getting started
 
-Most of the scripts are tested with my preferred Linux distribution, [openSUSE Tumbleweed](https://en.opensuse.org/Portal:Tumbleweed). 
+Most of the scripts are tested with my preferred Linux distribution, Debian. Start with a minimalistic install using the net-installer.
 With some modifications it could work for other distributions as well.
-
-# zypper configuration
-To avoid the installation of "recommended" packages by default, make sure to disable it in _/etc/zypp.conf_, by setting the following property.
-```
-solver.onlyRequires = true
-```
-This way dist upgrades won't try to install those either.
 
 # i3 - desktop environment setup 
 
@@ -20,13 +13,22 @@ The configuration file is located under ~/.config/i3/config. This is what needs 
 To also install all the used applications, run the following command:
 
 ```
-zypper in rxvt-unicode feh fontawesome-fonts rofi redshift
+apt-get install rxvt-unicode feh fonts-font-awesome rofi redshift fonts-hack-ttf arandr 
 
 ```
 
 ## urxvt
 Under _dotfiles_ resides the _Xresources_ config file that _urxvt_ uses to change the look and feel.
 This needs to be linked to _`~/.Xresources`.
+Note, to reload the _.Xresources file, run `xrdb ~/.Xresources`
+
+## sudo
+By default _sudo_ is not enabled in Debian, so manual addition is requiered.
+
+```
+apt-get install sudo
+adduser snorbi sudo
+```
 
 # zsh
 Make sure to install _zsh_ and the dependencies needed by running:
@@ -43,7 +45,7 @@ When this is done, remove _~/.zshrc_ and link the provided _dotfiles_ one._
 Install the latest version of emacs and make sure to remove any existing configuration, since we won't need that!
 
 ```
-zypper in emacs
+apt-get install emacs
 rm -f ~/.emacs
 rm -rf ~/.emacs.d
 ```
