@@ -90,7 +90,7 @@ bindsym $mod+a focus parent
 
 set $workspace1 "1: Terminals "
 set $workspace2 "2: Firefox "
-set $workspace3 "3: Emacs "
+set $workspace3 "3: Work "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
