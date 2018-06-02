@@ -25,15 +25,20 @@
     </property>
     <property name="plugin-6" type="empty">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="vlc"/>
     </property>
     <property name="plugin-13" type="empty"/>
     <property name="plugin-7" type="empty">
       <property name="show-frame" type="empty"/>
       <property name="names-visible" type="array">
-        <value type="string" value="network"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="vlc"/>
         <value type="string" value="networkmanager applet"/>
-        <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="ibus panel"/>
+        <value type="string" value="network"/>
+        <value type="string" value="ibus-ui-gtk3"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="software updates"/>
       </property>
     </property>
     <property name="plugin-8" type="empty"/>
