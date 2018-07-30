@@ -3,31 +3,87 @@ This repository contains all the scripts and settings required for setting up my
 
 # Getting started
 
-Most of the scripts are tested with my preferred Linux distribution, OpenSUSE Tumbleweed. Start with a simple XFCE4 desktop install.
-With some modifications it could work for other distributions as well, also the given `dotfiles` might be of use.
+Most of the scripts are tested with my preferred Linux distribution, Debian (sid). Start with a minimalist net-install. 
 
 
-# Desktop improvements
+# APT
 
-Install the most the needed utilities by running:
+## Tracking changes of packages
+
+In order to keep track of what changed in the upgraded packages, install the following `apt` hook and configure it
+```
+apt install apt-listchanges; dpkg-reconfigure apt-listchanges
+```
+
+## Tracking bugs in updated and installed packages
+
+Since this guide assumes that the unstable branch of Debian is used, it is recommended to check for critical issues in the installed packages, so we can skip extremly buggy updates.
+```
+apt install apt-listbugs
+```
+
+# Desktop environment
+
+## XFCE4 
+Install XFCE by running the following command. The default systemd target is the graphical one, so after a restart the system should boot into XFCE4.
+```
+apt install xfce4 xfce4-goodies
+```
+
+## i3 - desktop environment setup 
+
+Install the desktop system and the necessary dependencies of the custom configuration.
 
 ```
-sudo zypper in redshift hack-fonts rofi
+apt install i3 fonts-font-awesome rofi arandr feh
 ```
 
-Under _dotfiles_ resides the _Xresources_ config file that _urxvt_ uses to change the look and feel.
-This needs to be linked to _`~/.Xresources`.
-Note, to reload the _.Xresources file, run `xrdb ~/.Xresources`
+Remove the default configuration and symlink the provided ones.
 
-Make sure to symlink the given XFCE4 configuration files `dotfiles/xfce4` to `~/.config/xfce4`.
+```
+rm -f ~/.config/i3/config
+ln -s ~/Projects/Battlestation/dotfiles/i3/i3config ~/.config/i3/config
+ln -s ~/Projects/Battlestation/dotfiles/i3/i3status ~/.config/i3status/config
+```
 
+### Redshift
 
-# i3 - desktop environment setup 
+```
+apt install redshift-gtk
+```
 
-The configuration file is located under ~/.config/i3/config. This is what needs to be overriden by the provided one.
+### Fonts and look and feel settings
+
+```
+apt install fonts-hack
+```
+
+To make sure that the the X specific global settings are applied, run the following symlink command (where the location of this project is assumed to be `~/Projects/Battlestation`)
+This needs to be linked to `~/.Xresources`.
+```
+cd ~
+ln -s Projects/Battlestation/dotfiles/.Xresources
+```
+
+### Rofi
+
+```
+apt install rofi
+```
+
+To use Rofi for running applications, bind this to your preferred key (for example `super+d`)
+```
+rofi -show run -lines 20 -theme Monokai -opacity "80" -columns 2 -font "Hack Semibold 14"
+```
+You can browse the built in themes with `rofi-theme-switcher`.
 
 
 ## urxvt
+
+```
+apt install rxvt-unicode
+```
+
 Under _dotfiles_ resides the _Xresources_ config file that _urxvt_ uses to change the look and feel.
 This needs to be linked to _`~/.Xresources`.
 Note, to reload the _.Xresources file, run `xrdb ~/.Xresources`
