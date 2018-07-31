@@ -87,10 +87,12 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspace names
+# For copy-pasting fancy icons, go here: https://fontawesome.com/cheatsheet
 
 set $workspace1 "1: Terminals "
-set $workspace2 "2: Firefox "
-set $workspace3 "3: Work "
+set $workspace2 "2: Browsers "
+set $workspace3 "3: Editor "
+set $workspace10 "10: Communication "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -102,8 +104,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
+bindsym $mod+0 workspace $workspace10
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -190,7 +191,7 @@ bindsym $mod+p exec arandr
 
 # use rofi instead of dmenu
 # bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "80" -columns 1 -font "Source Code Pro Semibold 14"
-bindsym $mod+d exec rofi -show run -lines 20 -theme Monokai -opacity "80" -columns 2 -font "Hack Semibold 14"
+bindsym $mod+d exec rofi -show run -display-run "run " -lines 20 -theme Monokai -opacity "80" -columns 2 -font "Hack Semibold 14"
 
 # set a fancy background picture
 exec_always --no-startup-id feh --bg-scale ~/Pictures/bg.jpg
@@ -200,4 +201,8 @@ exec --no-startup-id redshift
 
 # we want specific applications to always reside in the dedicated workspace (use 'xprop' to get the correct class name)
 assign [class="Firefox"] $workspace2
+assign [class="Google-chrome"] $workspace2
 assign [class="Emacs"] $workspace3
+assign [class="Slack"] $workspace10
+assign [class="zoom"] $workspace10
+
