@@ -28,7 +28,9 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# rofi is used instead of dmenu, hence the commented out section
+# rofi is used instead of dmenu (this assumes that rofi is installed). if you would like to stick to dmenu, see the commented out block right after this section
+bindsym $mod+d exec rofi -show run -display-run "run " -lines 20 -theme Monokai -opacity "80" -columns 2 -font "Hack Semibold 14"
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -36,29 +38,41 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+
+# move workspace to output (displays)
+bindsym $mod+Control+Shift+j move workspace to output left
+bindsym $mod+Control+Shift+k move workspace to output down
+bindsym $mod+Control+Shift+l move workspace to output up
+bindsym $mod+Control+Shift+semicolon move workspace to output right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Control+Shift+Left move workspace to output left
+bindsym $mod+Control+Shift+Down move workspace to output down
+bindsym $mod+Control+Shift+Up move workspace to output up
+bindsym $mod+Control+Shift+Right move workspace to output right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -86,36 +100,42 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# workspace names
-# For copy-pasting fancy icons, go here: https://fontawesome.com/cheatsheet
-
+# Variables for workspace names, which are used throughout the config. This is where you can rename the workspaces according to your own needs! 
+# For copy-pasting fancy icons, go here: https://fontawesome.com/cheatsheet. This assumes that you have fontawesome installed. Otherwise you might not even see the pretty icons!
 set $workspace1 "1: Terminals "
-set $workspace2 "2: Browsers "
-set $workspace3 "3: Editor "
+set $workspace2 "2: Editor "
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5: Browsers "
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
 set $workspace10 "10: Communication "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -158,7 +178,6 @@ set $bgColor #1f222d
 set $inactiveBgColor #252936
 set $urgentBgColor #ee829f
 
-#set $indicator #fcc09e
 set $indicator #00ff00
 
 # Widow Colours
@@ -186,12 +205,8 @@ bar {
 	}
 }
 
-# the usual binding for managing screens/monitors
+# the usual binding for managing screens/monitors (this assumes that arandr is available)
 bindsym $mod+p exec arandr
-
-# use rofi instead of dmenu
-# bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "80" -columns 1 -font "Source Code Pro Semibold 14"
-bindsym $mod+d exec rofi -show run -display-run "run " -lines 20 -theme Monokai -opacity "80" -columns 2 -font "Hack Semibold 14"
 
 # set a fancy background picture
 exec_always --no-startup-id feh --bg-scale ~/Pictures/bg.jpg
@@ -200,9 +215,11 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/bg.jpg
 exec --no-startup-id redshift
 
 # we want specific applications to always reside in the dedicated workspace (use 'xprop' to get the correct class name)
-assign [class="Firefox"] $workspace2
-assign [class="Google-chrome"] $workspace2
-assign [class="Emacs"] $workspace3
+assign [class="Emacs"] $workspace2
+
+assign [class="Firefox"] $workspace5
+assign [class="Google-chrome"] $workspace5
+
 assign [class="Slack"] $workspace10
 assign [class="zoom"] $workspace10
 
