@@ -54,8 +54,10 @@ ln -s ~/Projects/Battlestation/dotfiles/i3/i3status ~/.config/i3status/config
 
 ### Redshift
 
+Redshift is started by i3 with the hardcoded settings and location.
+
 ```
-apt install redshift-gtk
+apt install redshift
 ```
 
 ### Fonts and look and feel settings
