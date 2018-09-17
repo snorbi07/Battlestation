@@ -24,6 +24,12 @@ apt install apt-listbugs
 
 # Desktop environment
 
+## Throw out CAPS
+
+To switch caps lock into a ctrl button, run: `setxkbmap -layout us -option ctrl:nocaps`
+To make it permanant add it to `/etc/default/keyboard` by setting `XKBOPTIONS="ctrl:nocaps"`.
+
+
 ## XFCE4 
 Install XFCE by running the following command. The default systemd target is the graphical one, so after a restart the system should boot into XFCE4.
 ```
