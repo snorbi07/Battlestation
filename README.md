@@ -3,45 +3,25 @@ This repository contains all the scripts and settings required for setting up my
 
 # Getting started
 
-Most of the scripts are tested with my preferred Linux distribution, Debian (sid). Start with a minimalist net-install. 
+Most of the scripts are tested with my preferred Linux distribution, openSUSE. Start with a minimalist install (generic desktop or server).
 
+# Zypper
+By default openSuse installs recommended packages as well. In order to disable this edit `/etc/zypp/zypp.conf` and set the `solver.onlyRequires = true` value.
 
-# APT
-
-## Tracking changes of packages
-
-In order to keep track of what changed in the upgraded packages, install the following `apt` hook and configure it
-```
-apt install apt-listchanges; dpkg-reconfigure apt-listchanges
-```
-
-## Tracking bugs in updated and installed packages
-
-Since this guide assumes that the unstable branch of Debian is used, it is recommended to check for critical issues in the installed packages, so we can skip extremly buggy updates.
-```
-apt install apt-listbugs
-```
+## Pacman repositories
 
 # Desktop environment
 
 ## Throw out CAPS
-
 To switch caps lock into a ctrl button, run: `setxkbmap -layout us -option ctrl:nocaps`
 To make it permanant add it to `/etc/default/keyboard` by setting `XKBOPTIONS="ctrl:nocaps"`.
-
-
-## XFCE4 
-Install XFCE by running the following command. The default systemd target is the graphical one, so after a restart the system should boot into XFCE4.
-```
-apt install xfce4 xfce4-goodies
-```
 
 ## i3 - desktop environment setup 
 
 Install the desktop system and the necessary dependencies of the custom configuration.
 
 ```
-apt install i3 fonts-font-awesome rofi arandr feh
+sudo zypper in i3 rofi arandr feh fontawesome-fonts
 ```
 
 Remove the default configuration and symlink the provided ones.
@@ -57,13 +37,13 @@ ln -s ~/Projects/Battlestation/dotfiles/i3/i3status ~/.config/i3status/config
 Redshift is started by i3 with the hardcoded settings and location.
 
 ```
-apt install redshift
+sudo zypper in redshift
 ```
 
 ### Fonts and look and feel settings
 
 ```
-apt install fonts-hack
+sudo zypper in hack-fonts
 ```
 
 To make sure that the the X specific global settings are applied, run the following symlink command (where the location of this project is assumed to be `~/Projects/Battlestation`)
@@ -76,7 +56,7 @@ ln -s Projects/Battlestation/dotfiles/.Xresources
 ### Rofi
 
 ```
-apt install rofi
+sudo zypper in rofi
 ```
 
 To use Rofi for running applications, bind this to your preferred key (for example `super+d`)
@@ -89,7 +69,7 @@ You can browse the built in themes with `rofi-theme-switcher`.
 ## urxvt
 
 ```
-apt install rxvt-unicode
+sudo zypper in rxvt-unicode
 ```
 
 Under _dotfiles_ resides the _Xresources_ config file that _urxvt_ uses to change the look and feel.
@@ -118,6 +98,37 @@ rm -rf ~/.emacs.d
 
 To setup the latest version of Emacs with a (my) personal configuration fetch it from [GitHub](https://github.com/snorbi07/emacs.d).
 After you cloned the the configuration, make sure to create a symlink to `~/.emacs.d_`.
+
+# NixPkg setup
+
+By default OpenSUSE use btrfs and snapper for the root partition and Nix also puts a `/nix` folder there.
+This means that in case of a rollback with snapper data loss would occure for the installed Nix packages.
+
+To avoid this issue a dedicated subvolume should be created for the `/nix` folder.
+
+## Creating a /nix subvolume
+
+The 1st step is to mount the top level subvolume.
+```
+sudo mount -t btrfs -o subvolid=5 /dev/sda2 /mnt
+```
+Where `sd2` is the main partition in this case. This will vary from installation to installation.
+Afterwards add a new subvolume for Nix, by running:
+```
+sudo btrfs subvolume create /mnt/@/nix
+```
+
+You also need to add a mount point for it, by creating the `/nix` folder on root and changing the owner of it (`chown snorbi:snorbi /nix`)
+Afterwards don't forget to add it to `/etc/fstab`.
+To verify that it all works, just run `mount -a`
+
+Last step is to follow the NixPkg installation steps outlined on their [site](https://nixos.org/nix/)
+
+### References:
+https://btrfs.wiki.kernel.org/index.php/SysadminGuide
+https://unix.stackexchange.com/questions/367123/why-is-the-default-top-level-subvolume-id-5-not-shown-in-btrfs-subvolume-list
+https://doc.opensuse.org/documentation/leap/reference/html/book.opensuse.reference/cha.snapper.html#sec.snapper.setup.customizing.new_subvolume
+https://askubuntu.com/questions/331233/creating-btrfs-subvolume-like-or-home
 
 # Installing node
 
