@@ -9,12 +9,15 @@ Most of the scripts are tested with my preferred Linux distribution, openSUSE. S
 By default openSuse installs recommended packages as well. In order to disable this edit `/etc/zypp/zypp.conf` and set the `solver.onlyRequires = true` value.
 
 ## Pacman repositories
+https://en.opensuse.org/Additional_package_repositories
+To add the Pacman repositories for Tumbleweed, run `zypper ar -cfp 90 http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman`.
 
 # Desktop environment
 
 ## Throw out CAPS
 To switch caps lock into a ctrl button, run: `setxkbmap -layout us -option ctrl:nocaps`
-To make it permanant add it to `/etc/default/keyboard` by setting `XKBOPTIONS="ctrl:nocaps"`.
+It is also executed by default in the provided i3 config
+
 
 ## i3 - desktop environment setup 
 
@@ -132,5 +135,6 @@ https://askubuntu.com/questions/331233/creating-btrfs-subvolume-like-or-home
 
 # Installing node
 
-Just use the [Node Version Manager](https://github.com/creationix/nvm).
-The ZSH configuration disables this as it slows down the application startup. In order to use it in a shell, run the given `loadnvm` alias.
+Use the [Node Version Manager](https://github.com/creationix/nvm).
+Make sure to edit `~/.bashrc` and add `--no-use` to the end of the nvm script `nvm.sh --no-use ...` to postpone using loading nvm until it is manually used.
+
