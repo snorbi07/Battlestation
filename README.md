@@ -102,6 +102,26 @@ rm -rf ~/.emacs.d
 To setup the latest version of Emacs with a (my) personal configuration fetch it from [GitHub](https://github.com/snorbi07/emacs.d).
 After you cloned the the configuration, make sure to create a symlink to `~/.emacs.d_`.
 
+## org-mode files WebDav mount setup
+Make sure to install the necessary packages to have a WebDav mount:
+```
+sudo zypper in davfs2
+```
+
+Afterwards add the needed secret entry to `/etc/davfs2/secrets`:
+```
+https://webdav.fastmail.com <username>@fastmail.com <password>
+```
+
+Create a mount point for the WebDav location: `sudo mkdir /mnt/dav`.
+
+Also add the mount entry to `/etc/fstab`:
+```
+https://webdav.fastmail.com                /mnt/dav                davfs  user,noauto,file_mode=666,dir_mode=777 0 1
+```
+
+Afterwards to mount the WebDav folder just run `sudo mount /mnt/dav`.
+
 # NixPkg setup
 
 By default OpenSUSE use btrfs and snapper for the root partition and Nix also puts a `/nix` folder there.
