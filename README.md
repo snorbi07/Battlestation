@@ -35,6 +35,22 @@ ln -s ~/Projects/Battlestation/dotfiles/i3/i3config ~/.config/i3/config
 ln -s ~/Projects/Battlestation/dotfiles/i3/i3status ~/.config/i3status/config
 ```
 
+### Installing polybar
+Setup the necessary repository from OBS, refresh and install using the following commands:
+```
+zypper addrepo https://download.opensuse.org/repositories/home:sysek/openSUSE_Tumbleweed/home:sysek.repo
+sudo zypper refresh
+sudo zypper install polybar pulseaudio-utils
+```
+
+
+Create the necessary config folder for polybar `mkdir -p ~/.config/polybar`. 
+Afterwards link the provided config and executable:
+```
+ln -s ~/Projects/Battlestation/dotfiles/polybar/config ~/.config/polybar/
+ln -s ~/Projects/Battlestation/dotfiles/polybar/launch.sh ~/.config/polybar/
+```
+
 ### Redshift
 
 Redshift is started by i3 with the hardcoded settings and location.
