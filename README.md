@@ -44,22 +44,6 @@ ln -s ~/Projects/Battlestation/dotfiles/i3/i3config ~/.config/i3/config
 ln -s ~/Projects/Battlestation/dotfiles/i3/i3status ~/.config/i3status/config
 ```
 
-### Installing polybar
-Setup the necessary repository from OBS, refresh and install using the following commands:
-```
-zypper addrepo https://download.opensuse.org/repositories/home:sysek/openSUSE_Tumbleweed/home:sysek.repo
-sudo zypper refresh
-sudo zypper install polybar pulseaudio-utils
-```
-
-
-Create the necessary config folder for polybar `mkdir -p ~/.config/polybar`. 
-Afterwards link the provided config and executable:
-```
-ln -s ~/Projects/Battlestation/dotfiles/polybar/config ~/.config/polybar/
-ln -s ~/Projects/Battlestation/dotfiles/polybar/launch.sh ~/.config/polybar/
-```
-
 ### Redshift
 
 Redshift is started by i3 with the hardcoded settings and location.
@@ -107,7 +91,7 @@ Note, to reload the _.Xresources file, run `xrdb ~/.Xresources`
 # zsh
 Make sure to install _zsh_ and the dependencies needed by running:
 ```
-sudo zypper in zsh powerline-fonts
+sudo apt install zsh powerline-fonts
 ```
 
 After follow the install instructions of _ohmyzsh_: https://github.com/robbyrussell/oh-my-zsh
@@ -119,7 +103,7 @@ When this is done, remove _~/.zshrc_ and link the provided _dotfiles_ one._
 Install the latest version of emacs and make sure to remove any existing configuration, since we won't need that!
 
 ```
-sudo zypper in install emacs
+sudo apt install emacs
 rm -f ~/.emacs
 rm -rf ~/.emacs.d
 ```
