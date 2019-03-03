@@ -44,6 +44,14 @@ ln -s ~/Projects/Battlestation/dotfiles/i3/i3config ~/.config/i3/config
 ln -s ~/Projects/Battlestation/dotfiles/i3/i3status ~/.config/i3status/config
 ```
 
+## i3 blocks setup
+
+```
+apt install i3blocks lm-sensors
+ln -s ~/Projects/Battlestation/dotfiles/i3/i3blocks ~/.config/i3blocks/config
+```
+
+
 ### Redshift
 
 Redshift is started by i3 with the hardcoded settings and location.
@@ -114,7 +122,7 @@ After you cloned the the configuration, make sure to create a symlink to `~/.ema
 ## org-mode files WebDav mount setup
 Make sure to install the necessary packages to have a WebDav mount:
 ```
-sudo zypper in davfs2
+apt install davfs2
 ```
 
 Afterwards add the needed secret entry to `/etc/davfs2/secrets`:
