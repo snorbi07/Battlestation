@@ -89,8 +89,8 @@ separator=false
 
 [bandwidth]
 label=
-#instance=eth0
-interval=5
+instance=wlp58s0
+interval=10
 
 # CPU usage
 #
