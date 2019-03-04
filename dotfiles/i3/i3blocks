@@ -64,6 +64,18 @@ separator=true
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
+label=
+instance=enp57s0f1
+color=#00FF00
+interval=10
+separator=false
+
+[bandwidth]
+label=
+instance=enp57s0f1
+interval=10
+
+[iface]
 label=
 instance=wlp58s0
 color=#00FF00
