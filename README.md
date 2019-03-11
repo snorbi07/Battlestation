@@ -23,6 +23,13 @@ apt install apt-listbugs
 
 # Desktop environment
 
+## NetworkManager
+Make sure that we don't wait for a network connection to come online before booting. Who wants that?!
+
+```
+systemctl disable NetworkManager-wait-online.service
+```
+
 ## Throw out CAPS
 
 To switch caps lock into a ctrl button, run: `setxkbmap -layout us -option ctrl:nocaps`
