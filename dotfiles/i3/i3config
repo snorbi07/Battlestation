@@ -230,3 +230,4 @@ assign [class="Google-chrome"] $workspace5
 
 assign [class="Slack"] $workspace10
 assign [class="zoom"] $workspace10
+assign [class="Skype"] $workspace10
