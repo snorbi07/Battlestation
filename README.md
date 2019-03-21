@@ -146,6 +146,14 @@ https://webdav.fastmail.com                /mnt/dav                davfs  user,n
 
 Afterwards to mount the WebDav folder just run `sudo mount /mnt/dav`.
 
+# Development tooling
+Various development related packages...
+
+```
+apt install editorconfig silversearcher-ag git
+```
+
+
 # Installing node
 
 Use the [Node Version Manager](https://github.com/creationix/nvm).
