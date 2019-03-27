@@ -21,6 +21,12 @@ Since this guide assumes that the unstable branch of Debian is used, it is recom
 apt install apt-listbugs
 ```
 
+# sudo
+In case `sudo` is not enaled, do so by executing the following steps:
+- install `sudo` ifself: `apt install sudo`
+- add a user to the `sudo` group: `adduser [user name here] sudo`
+- change `sudo` to ask for root password, by running `visudo` and adding the line `Defaults rootpw`
+
 # Desktop environment
 
 ## NetworkManager
