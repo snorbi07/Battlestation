@@ -227,6 +227,7 @@ assign [class="Emacs"] $workspace2
 
 assign [class="Firefox"] $workspace5
 assign [class="Google-chrome"] $workspace5
+assign [class="Chromium"] $workspace5
 
 assign [class="Slack"] $workspace10
 assign [class="zoom"] $workspace10
