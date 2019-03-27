@@ -29,8 +29,8 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # rofi is used instead of dmenu (this assumes that rofi is installed). if you would like to stick to dmenu, see the commented out block right after this section
-bindsym $mod+d exec rofi -show drun -display-run "run " -lines 20 -theme Monokai -opacity "80" -columns 2 -font "Hack Semibold 12" -show-icons
-bindsym $mod+Shift+d exec rofi -show run -display-run "run " -lines 20 -theme Monokai -opacity "80" -columns 2 -font "Hack Semibold 12"
+bindsym $mod+d exec rofi -show drun -display-run "run " -lines 20 -theme solarized_alternate -opacity "80" -columns 2 -font "Hack Semibold 12" -show-icons
+bindsym $mod+Shift+d exec rofi -show run -display-run "run " -lines 20 -theme solarized_alternate -opacity "80" -columns 2 -font "Hack Semibold 12"
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
