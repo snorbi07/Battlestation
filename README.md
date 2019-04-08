@@ -21,6 +21,14 @@ Since this guide assumes that the unstable branch of Debian is used, it is recom
 apt install apt-listbugs
 ```
 
+## Disable apt-daily service
+It isn't the best idea to have automated/unattended upgrades on a "rolling release", so disable it by running:
+```
+systemctl disable apt-daily.service
+systemctl disable apt-daily.timer
+systemctl disable apt-daily-upgrade.timer
+```
+
 # sudo
 In case `sudo` is not enaled, do so by executing the following steps:
 - install `sudo` ifself: `apt install sudo`
