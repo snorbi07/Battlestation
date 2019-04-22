@@ -214,7 +214,7 @@ bar {
 bindsym $mod+p exec arandr
 
 # set a fancy background picture
-exec_always --no-startup-id feh --bg-scale ~/Pictures/bg.jpg
+exec_always --no-startup-id feh --randomize --bg-fill ~/Documents/Wallpapers/*
 
 # start redshift since I don't want my eyes to bleed!
 exec --no-startup-id redshift -l 47.5:19.0 -t 5700:3600 -g 0.8 -m randr -v
