@@ -213,6 +213,10 @@ bar {
 # the usual binding for managing screens/monitors (this assumes that arandr is available)
 bindsym $mod+p exec arandr
 
+# screen capturing
+bindsym --release Print exec --no-startup-id gnome-screenshot
+bindsym --release Shift+Print exec --no-startup-id gnome-screenshot --area
+
 # set a fancy background picture
 exec_always --no-startup-id feh --randomize --bg-fill ~/Documents/Wallpapers/*
 

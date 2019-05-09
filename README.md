@@ -54,7 +54,7 @@ It is also executed by default in the provided i3 config
 Install the desktop system and the necessary dependencies of the custom configuration.
 
 ```
-apt install i3 fonts-font-awesome rofi arandr feh
+apt install i3 fonts-font-awesome rofi arandr feh gnome-screenshot
 ```
 
 Remove the default configuration and symlink the provided ones.
