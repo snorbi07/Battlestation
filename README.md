@@ -5,6 +5,10 @@ This repository contains all the scripts and settings required for setting up my
 
 Most of the scripts are tested with my preferred Linux distribution, Debian (sid). Start with a minimalist net-install. 
 
+# Adding scripts to PATH
+Make sure you have the provided scripts (`/bin` folder) on your `PATH`, since some of the configurations expect that.
+If this step is not ensured, some functionalities might not work and fail silently.
+
 # APT
 
 ## Tracking changes of packages
@@ -54,7 +58,7 @@ It is also executed by default in the provided i3 config
 Install the desktop system and the necessary dependencies of the custom configuration.
 
 ```
-apt install i3 fonts-font-awesome rofi arandr feh gnome-screenshot
+apt install i3 fonts-font-awesome rofi arandr feh gnome-screenshot libnotify-bin
 ```
 
 Remove the default configuration and symlink the provided ones.

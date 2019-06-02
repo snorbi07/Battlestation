@@ -93,7 +93,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# Disable, when reenabling make sure to change the keyboard input lang switcher binding
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -209,6 +210,8 @@ bar {
 	}
 }
 
+# Change the keyboard input language
+bindsym $mod+space exec --no-startup-id kbdlang_switcher.sh && pkill -RTMIN+7 i3blocks && notify-send "Switched keyboard input language" -t 2000
 
 # the usual binding for managing screens/monitors (this assumes that arandr is available)
 bindsym $mod+p exec arandr

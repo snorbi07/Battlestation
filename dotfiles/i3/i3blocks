@@ -143,6 +143,13 @@ label=
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=5
 
+#Language indicator
+[language]
+label=
+command=setxkbmap -print | grep xkb_symbols | awk '{print $4}' | awk -F"+" '{print $2}'
+interval=once
+signal=7
+
 # Generic media player support
 #
 # This displays "ARTIST - SONG" if a music is playing.
