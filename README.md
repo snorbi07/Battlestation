@@ -33,6 +33,17 @@ systemctl disable apt-daily.timer
 systemctl disable apt-daily-upgrade.timer
 ```
 
+# System settings
+
+## Enable fstrim
+Install the necessary package, by running `sudo apt install util-linux`. Afterwards enable the weekly cron job, by running: `sudo systemctl status fstrim.timer`
+
+## Enable TLP
+In case of a laptop setup, install and enable TLP for better power usage.
+`sudo apt install tlp`
+This will install and enable the TLP services.
+
+
 # sudo
 In case `sudo` is not enaled, do so by executing the following steps:
 - install `sudo` ifself: `apt install sudo`
