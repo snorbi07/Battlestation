@@ -232,7 +232,7 @@ exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
 # we want specific applications to always reside in the dedicated workspace (use 'xprop' to get the correct class name)
 assign [class="Emacs"] $workspace2
 
-assign [class="Firefox"] $workspace5
+assign [class="firefox"] $workspace5
 assign [class="Google-chrome"] $workspace5
 assign [class="Chromium"] $workspace5
 
