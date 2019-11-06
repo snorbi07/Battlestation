@@ -185,6 +185,12 @@ https://webdav.fastmail.com                /mnt/dav                davfs  user,n
 
 Afterwards to mount the WebDav folder just run `sudo mount /mnt/dav`.
 
+# SSH agent setup
+This assumes that there is an existing key in .ssh/
+Install keychain and ssh-askpass: `sudo apt-get install keychain ssh-askpass`
+Add the following line to `.profile`: `export SSH_ASKPASS=/usr/bin/ssh-askpass`
+Make sure that the provided `keychain.sh` is linked to `~/bin`;
+
 # Development tooling
 Various development related packages...
 

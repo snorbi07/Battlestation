@@ -229,6 +229,9 @@ exec --no-startup-id redshift -l 47.5:19.0 -t 5700:3600 -g 0.8 -m randr -v
 # rebind caps lock to control
 exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
 
+# start up the ssh agent
+exec --no-startup-id keychain.sh
+
 # we want specific applications to always reside in the dedicated workspace (use 'xprop' to get the correct class name)
 assign [class="Emacs"] $workspace2
 
