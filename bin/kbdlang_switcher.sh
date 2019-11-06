@@ -6,10 +6,10 @@ HU="hu"
 
 if [ $CURR_LANG == $US ]
 then
-	setxkbmap hu
+	setxkbmap -layout hu -option ctrl:nocaps
 elif [ $CURR_LANG == $HU ]
 then
-	setxkbmap us
+	setxkbmap -layout us -option ctrl:nocaps
 else
-	setxkbmap us
+	setxkbmap -layout us -option ctrl:nocaps
 fi
