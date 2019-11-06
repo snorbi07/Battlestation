@@ -155,6 +155,16 @@ rm -rf ~/.emacs.d
 To setup the latest version of Emacs with a (my) personal configuration fetch it from [GitHub](https://github.com/snorbi07/emacs.d).
 After you cloned the the configuration, make sure to create a symlink to `~/.emacs.d_`.
 
+## Enable emacs daemon
+Create a symlink to the provided systemd unit:
+`sudo ln -s /usr/lib/systemd/user/emacs.service /etc/systemd/system/emacs.service`
+
+After this reload the systemd daemon and enable the service:
+```
+systemctl daemon-reload
+systemctl enable emacs.service
+```
+
 ## org-mode files WebDav mount setup
 Make sure to install the necessary packages to have a WebDav mount:
 ```
