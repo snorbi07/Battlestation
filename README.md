@@ -9,6 +9,17 @@ Most of the scripts are tested with my preferred Linux distribution, Debian (sid
 Make sure you have the provided scripts (`/bin` folder) on your `PATH`, since some of the configurations expect that.
 If this step is not ensured, some functionalities might not work and fail silently.
 
+# Setting up change tracking (etckeeper)
+In order to have some idea about what was changed in the configuration, install etckeeper. The default configuration is adequet.
+```
+apt install etckeeper
+```
+Don't forget to intialize it!
+```
+cd etc
+etckeeper init
+```
+
 # APT
 
 ## Tracking changes of packages
