@@ -91,6 +91,13 @@ ln -s ~/Projects/Battlestation/dotfiles/i3/i3config ~/.config/i3/config
 ln -s ~/Projects/Battlestation/dotfiles/i3/i3status ~/.config/i3status/config
 ```
 
+## i3 - enable touchpad settings
+To have click on tap, scrolling, middle button working, copy the provided file to the X11 config.
+```
+sudo cp ~/dev/Battlestation/dotfiles/90-touchpad.conf /etc/X11/xorg.conf.d
+```
+
+
 ## i3 blocks setup
 
 ```
@@ -208,7 +215,6 @@ Various development related packages...
 ```
 apt install editorconfig silversearcher-ag git
 ```
-
 
 # Installing node
 

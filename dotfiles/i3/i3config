@@ -23,7 +23,7 @@ font pango:Hack 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -217,8 +217,7 @@ bindsym $mod+space exec --no-startup-id kbdlang_switcher.sh && pkill -RTMIN+7 i3
 bindsym $mod+p exec arandr
 
 # screen capturing
-bindsym --release Print exec --no-startup-id gnome-screenshot
-bindsym --release Shift+Print exec --no-startup-id gnome-screenshot --area
+bindsym --release Print exec --no-startup-id spectacle
 
 # set a fancy background picture
 exec_always --no-startup-id feh --randomize --bg-fill ~/Documents/Wallpapers/*
