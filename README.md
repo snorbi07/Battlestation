@@ -80,7 +80,7 @@ It is also executed by default in the provided i3 config
 Install the desktop system and the necessary dependencies of the custom configuration.
 
 ```
-apt install i3 fonts-font-awesome rofi arandr feh gnome-screenshot libnotify-bin zathura
+apt install i3 fonts-font-awesome rofi arandr feh gnome-screenshot libnotify-bin zathura autorandr
 ```
 
 Remove the default configuration and symlink the provided ones.
